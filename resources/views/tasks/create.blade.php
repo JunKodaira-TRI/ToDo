@@ -1,10 +1,7 @@
 @extends('layout')
 
 @section('styles')
-  <!-- flatpickrデフォルトのスタイルシート -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <!-- flatpickrのブルーテーマ追加のスタイルシート -->
-  <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+    @include('share.flatpickr.styles')
 @endsection
 <main>
 @section('content')
@@ -44,17 +41,7 @@
 </main>
 
 @section('scripts')
- <!-- flatpickrのスクリプト -->
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<!-- flatpickr日本語化のスクリプト -->
-<script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
-<script>
-  flatpickr(document.getElementById('due_date'), {
-    locale: 'ja',
-    dateFormat: "Y/m/d",
-    minDate: new Date()
-  });
-</script>
+    @include('share.flatpickr.scripts')
 @endsection
 </body>
 </html>
