@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Requests\CreateTask;
+use App\Http\Requests\EditTask;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
