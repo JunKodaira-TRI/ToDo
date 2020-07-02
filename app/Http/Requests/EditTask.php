@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Task;
-use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rule;
 
 class EditTask extends CreateTask
 {
@@ -11,7 +11,7 @@ class EditTask extends CreateTask
     {
         $rule = parent::rules();
 
-        $status_rule = Rules::In(array_keys(Task::STATUS));
+        $status_rule = Rule::In(array_keys(Task::STATUS));
 
         return $rule + [
             'status' => 'required|' .$status_rule,
@@ -35,8 +35,8 @@ class EditTask extends CreateTask
             return $item['label'];
         }, Task::STATUS);
 
-        $status_labels = implode($status_labels, '、');
-
+        $status_labels = implode('、', $status_labels);
+        
         return $messages + [
             'status.in' => ':attribute には '.$status_labels.' のいずれかを指定してください。',
             
