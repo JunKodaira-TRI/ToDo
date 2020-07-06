@@ -15,11 +15,11 @@ class TaskController extends Controller
     public function index(Folder $folder)
     {
         // ユーザーのフォルダを取得する
-        $folders = Auth::user()->folders()->orderBy('id','asc')->get();
+        $folders = Auth::user()->folders()->get();
 
         // 選ばれたフォルダに紐づくタスクを取得する
         // 最後のget()を忘れると値が取得出来ないので注意
-        $tasks = $folder->tasks()->get();
+        $tasks = $folder->tasks()->orderBy('id','asc')->get();
         return view('tasks/index',[
             'folders' => $folders,
             'current_folder_id' => $folder->id,
