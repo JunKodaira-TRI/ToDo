@@ -45,7 +45,7 @@
           @foreach($tasks as $task)
             <tr>
               <td>{{ $task->title }}</td>
-              <td>
+              <td style="padding-top: 12px;">
                 <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
               </td>
               <td>{{ $task->formatted_due_date }}</td>
