@@ -15,7 +15,7 @@ class TaskController extends Controller
     public function index(Folder $folder)
     {
         // ユーザーのフォルダを取得する
-        $folders = Auth::user()->folders()->orderBy('id','desc')->get();
+        $folders = Auth::user()->folders()->orderBy('id','asc')->get();
 
         // 選ばれたフォルダに紐づくタスクを取得する
         // 最後のget()を忘れると値が取得出来ないので注意
